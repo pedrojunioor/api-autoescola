@@ -1,5 +1,7 @@
 import { IsNotEmpty } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
 export class CreateQuestionDto {
+  @ApiProperty()
   @IsNotEmpty()
   Pergunta  :string
   @IsNotEmpty()
@@ -8,12 +10,18 @@ export class CreateQuestionDto {
   Tema      :string
   @IsNotEmpty()
   A         :string
-  @IsNotEmpty()
+  @ApiProperty({
+    type: Number,
+  })
+  // @IsNotEmpty()
   B         :string
   @IsNotEmpty()
   C         :string
   @IsNotEmpty()
   D         :string
+  @ApiProperty({
+    type: Date,
+  })
   createdAt:  Date
   updateAt:  Date
 }
